@@ -23,9 +23,9 @@ class TicketRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'عنوان تیکت',
-            'lesson_file' => 'فایل پیوست',
-            'body' => 'متن تیکت',
+            'title' => 'Ticket Title',
+            'lesson_file' => 'Attachment File',
+            'body' => 'Ticket Body',
         ];
     }
 }

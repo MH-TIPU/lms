@@ -28,12 +28,12 @@ class UpdateUserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => 'نام',
-            'email' => 'ایمیل',
-            'username' => 'نام کاربری',
-            'mobile' => 'موبایل',
-            'status' => 'وضعیت',
-            'image' => 'عکس پروفایل',
+            'name' => 'Name',
+            'email' => 'Email',
+            'username' => 'Username',
+            'mobile' => 'Mobile',
+            'status' => 'Status',
+            'image' => 'Profile Picture',
         ];
     }
 }

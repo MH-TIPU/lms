@@ -11,7 +11,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <input type="email" name="email"  id="email" class="txt-l txt @error('email') is-invalid @enderror" placeholder="ایمیل"
+            <input type="email" name="email"  id="email" class="txt-l txt @error('email') is-invalid @enderror" placeholder="Email"
                    value="{{ old('email') }}" required autocomplete="email" autofocus
             >
             @error('email')
@@ -20,10 +20,10 @@
                 </span>
             @enderror
             <br>
-            <button type="submit" class="btn btn-recoverpass">بازیابی</button>
+            <button type="submit" class="btn btn-recoverpass">Recover</button>
         </div>
         <div class="form-footer">
-            <a href="{{ route('login') }}">صفحه ورود</a>
+            <a href="{{ route('login') }}">Login Page</a>
         </div>
     </form>
 @endsection

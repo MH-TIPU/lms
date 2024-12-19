@@ -29,6 +29,6 @@ class ValidJalaliDate implements Rule
 
     public function message()
     {
-        return 'یک تاریخ معتبر شمسی انتخاب کنید'." ({$this->error})";
+        return 'Please select a valid Jalali date'." ({$this->error})";
     }
 }

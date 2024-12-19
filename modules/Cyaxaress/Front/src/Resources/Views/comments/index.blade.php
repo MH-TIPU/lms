@@ -5,7 +5,7 @@
         @else
             <div class="comment-main">
                 <div class="ct-header">
-                    <p>برای ثبت دیدگاه باید ابتدا <a href="{{ route("login") }}">وارد سایت</a> شوید</p>
+                    <p>To post a comment, you must first <a href="{{ route("login") }}">log in</a></p>
                 </div>
             </div>
         @endauth
@@ -17,7 +17,7 @@
                 <ul class="comment-list-ul">
                     @auth
                     <div class="div-btn-answer">
-                        <button class="btn-answer" onclick="setCommentId({{ $comment->id }})">پاسخ به دیدگاه</button>
+                        <button class="btn-answer" onclick="setCommentId({{ $comment->id }})">Reply to comment</button>
                     </div>
                     @endauth
                     <li class="is-comment">
@@ -26,7 +26,7 @@
                                 <img src="{{ $comment->user->thumb }}" alt="{{ $comment->user->name }}">
                             </div>
                             <div class="comment-header-detail">
-                                <div class="comment-header-name">کاربر : {{ $comment->user->name }}</div>
+                                <div class="comment-header-name">User: {{ $comment->user->name }}</div>
                                 <div class="comment-header-date">{{ $comment->created_at }}</div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="comment-header-detail">
                                     <div class="comment-header-name">{{ $reply->user->name }}</div>
-                                    <div class="comment-header-date">10 روز پیش</div>
+                                    <div class="comment-header-date">10 days ago</div>
                                 </div>
                             </div>
                             <div class="comment-content">

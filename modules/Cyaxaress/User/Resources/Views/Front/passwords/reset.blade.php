@@ -8,21 +8,21 @@
         <div class="form-content form-account">
           @csrf
             <input id="password" type="password" class="txt txt-l @error('password') is-invalid @enderror"
-                   placeholder="رمز عبور جدید *"
+                   placeholder="New Password *"
                    name="password" required autocomplete="new-password"
             >
             <input  id="password-confirm" type="password" class="txt txt-l @error('password') is-invalid @enderror"
-                    placeholder="تایید رمز عبور جدید *"
+                    placeholder="Confirm New Password *"
                     name="password_confirmation" required autocomplete="new-password"
             >
-            <span class="rules">رمز عبور باید حداقل ۶ کاراکتر و ترکیبی از حروف بزرگ، حروف کوچک، اعداد و کاراکترهای غیر الفبا مانند !@#$%^&*() باشد.</span>
+            <span class="rules">The password must be at least 6 characters long and a combination of uppercase letters, lowercase letters, numbers, and non-alphabetic characters like !@#$%^&*().</span>
             @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
             <br>
-            <button class="btn continue-btn">بروزرسانی رمز عبور</button>
+            <button class="btn continue-btn">Update Password</button>
         </div>
     </form>
 @endsection

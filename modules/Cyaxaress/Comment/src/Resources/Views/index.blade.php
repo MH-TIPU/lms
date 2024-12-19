@@ -1,26 +1,26 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('comments.index') }}" title="نظرات">نظرات</a></li>
+    <li><a href="{{ route('comments.index') }}" title="Comments">Comments</a></li>
 @endsection
 @section('content')
     <div class="tab__box">
         <div class="tab__items">
-            <a class="tab__item {{ request("status") == "" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status="> همه نظرات</a>
-            <a class="tab__item {{ request("status") == "new" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=new">نظرات تاییده نشده</a>
-            <a class="tab__item {{ request("status") == "rejected" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=rejected">نظرات رد شده</a>
-            <a class="tab__item {{ request("status") == "approved" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=approved">نظرات تاییده شده</a>
+            <a class="tab__item {{ request("status") == "" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status="> All Comments</a>
+            <a class="tab__item {{ request("status") == "new" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=new">Unapproved Comments</a>
+            <a class="tab__item {{ request("status") == "rejected" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=rejected">Rejected Comments</a>
+            <a class="tab__item {{ request("status") == "approved" ? "is-active" : "" }}" href="{{ route("comments.index") }}?status=approved">Approved Comments</a>
         </div>
     </div>
     <div class="bg-white padding-20">
         <div class="t-header-search">
             <form action="">
                 <div class="t-header-searchbox font-size-13">
-                    <input type="text" class="text search-input__box font-size-13" placeholder="جستجوی در نظرات">
+                    <input type="text" class="text search-input__box font-size-13" placeholder="Search in comments">
                     <div class="t-header-search-content ">
-                        <input type="text"  class="text" name="body"  placeholder="قسمتی از متن">
-                        <input type="text"  class="text" name="email"  placeholder="ایمیل">
-                        <input type="text"  class="text margin-bottom-20" name="name"  placeholder="نام و نام خانوادگی">
-                        <button type="submit" class="btn btn-webamooz_net">جستجو</button>
+                        <input type="text"  class="text" name="body"  placeholder="Part of the text">
+                        <input type="text"  class="text" name="email"  placeholder="Email">
+                        <input type="text"  class="text margin-bottom-20" name="name"  placeholder="Full Name">
+                        <button type="submit" class="btn btn-webamooz_net">Search</button>
                     </div>
                 </div>
             </form>
@@ -30,14 +30,14 @@
         <table class="table">
             <thead role="rowgroup">
             <tr role="row" class="title-row">
-                <th>شناسه</th>
-                <th>ارسال کننده</th>
-                <th>برای</th>
-                <th>دیدگاه</th>
-                <th>تاریخ</th>
-                <th>تعداد پاسخ ها</th>
-                <th>وضعیت</th>
-                <th>عملیات</th>
+                <th>ID</th>
+                <th>Sender</th>
+                <th>For</th>
+                <th>Comment</th>
+                <th>Date</th>
+                <th>Number of Replies</th>
+                <th>Status</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -51,17 +51,17 @@
                 <td>{{ $comment->comments()->count() }} ({{ $comment->not_approved_comments_count }})</td>
                 <td class="confirmation_status {{ $comment->getStatusCssClass() }}">@lang($comment->status)</td>
                 <td>
-                    <a href="{{ route("comments.show", $comment->id) }}" class="item-eye mlg-15" title="مشاهده"></a>
+                    <a href="{{ route("comments.show", $comment->id) }}" class="item-eye mlg-15" title="View"></a>
                     @if(auth()->user()->hasAnyPermission(
                         \Cyaxaress\RolePermissions\Models\Permission::PERMISSION_SUPER_ADMIN,
                         \Cyaxaress\RolePermissions\Models\Permission::PERMISSION_MANAGE_COMMENTS))
-                    <a href="" onclick="deleteItem(event, '{{ route('comments.destroy', $comment->id) }}')" class="item-delete mlg-15" title="حذف"></a>
+                    <a href="" onclick="deleteItem(event, '{{ route('comments.destroy', $comment->id) }}')" class="item-delete mlg-15" title="Delete"></a>
                     <a href="" onclick="updateConfirmationStatus(event, '{{ route('comments.accept', $comment->id) }}',
-                        'آیا از تایید این آیتم اطمینان دارید؟' , 'تایید شده')"
-                       class="item-confirm mlg-15" title="تایید"></a>
+                        'Are you sure you want to approve this item?' , 'Approved')"
+                       class="item-confirm mlg-15" title="Approve"></a>
                     <a href="" onclick="updateConfirmationStatus(event, '{{ route('comments.reject', $comment->id) }}',
-                        'آیا از رد این آیتم اطمینان دارید؟' ,'رد شده')"
-                       class="item-reject mlg-15" title="رد"></a>
+                        'Are you sure you want to reject this item?' ,'Rejected')"
+                       class="item-reject mlg-15" title="Reject"></a>
                     @endif
                 </td>
             </tr>

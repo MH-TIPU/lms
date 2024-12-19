@@ -47,7 +47,7 @@ class CommentController extends Controller
     {
         $comment = $repo->store($request->all());
         event(new CommentSubmittedEvent($comment));
-        newFeedback('عملیات موفقیت آمیز', 'دیدگاه شما با ثبت گردید.');
+        newFeedback('Successful operation', 'Your comment has been registered.');
 
         return back();
     }

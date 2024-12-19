@@ -19,6 +19,6 @@ class ValidSeason implements Rule
 
     public function message()
     {
-        return 'سرفصل انتخاب شده معتبر نمی باشد.';
+        return 'The selected season is not valid.';
     }
 }

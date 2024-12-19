@@ -6,7 +6,7 @@
         @if($courseItem->getDiscountPercent())
         <div class="discountBadge">
             <p>{{ $courseItem->getDiscountPercent() }}%</p>
-            تخفیف
+            Discount
         </div>
         @endif
         <div class="card-img"><img src="{{ $courseItem->banner->thumb }}" alt="{{ $courseItem->title }}"></div>

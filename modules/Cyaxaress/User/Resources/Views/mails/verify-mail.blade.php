@@ -1,12 +1,12 @@
 @component('mail::message')
-# کد فعالسازی حساب شما در Hemn_org
+# Your account activation code at Hemn_org
 
-این ایمیل به دلیل ثبت نام شما در سایت Hemn_org برای شما ارسال شده است. **در صورتی که ثبت نامی توسط شما انجام نشده است** این ایمیل را نادیده بگیرید.
+This email has been sent to you because you registered on the Hemn_org website. **If you did not register**, please ignore this email.
 
 @component('mail::panel')
-کد فعالسازی شما: {{ $code }}
+Your activation code: {{ $code }}
 @endcomponent
 
-با تشکر,<br>
+Thank you,<br>
 {{ config('app.name') }}
 @endcomponent

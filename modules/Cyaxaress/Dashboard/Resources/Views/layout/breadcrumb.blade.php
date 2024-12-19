@@ -1,6 +1,6 @@
 <div class="breadcrumb">
     <ul>
-        <li><a href="{{ route('home') }}" title="پیشخوان">پیشخوان</a></li>
+        <li><a href="{{ route('home') }}" title="Dashboard">Dashboard</a></li>
         @yield('breadcrumb')
     </ul>
 </div>

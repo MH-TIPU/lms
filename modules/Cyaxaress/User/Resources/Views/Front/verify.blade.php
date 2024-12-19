@@ -8,28 +8,28 @@
                 <img src="/img/Hemn_ORG.png" alt="">
             </a>
             <div class="card-header">
-                <p class="activation-code-title">کد فرستاده شده به ایمیل  <span>{{ auth()->user()->email }}</span>
-                    را وارد کنید . ممکن است ایمیل به پوشه spam فرستاده شده باشد.
-                    ایمیلتان را اشتباه وارد کرده اید؟ <a href="{{ route('users.profile') }}"> برای ویرایش ایمیل کلیک کنید</a>.
+                <p class="activation-code-title">Enter the code sent to the email <span>{{ auth()->user()->email }}</span>.
+                    It may have been sent to the spam folder.
+                    Entered your email incorrectly? <a href="{{ route('users.profile') }}"> Click here to edit your email</a>.
                 </p>
             </div>
             <div class="form-content form-content1">
-                <input name="verify_code" required class="activation-code-input" placeholder="فعال سازی">
+                <input name="verify_code" required class="activation-code-input" placeholder="Activation">
                 @error('verify_code')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
                 <br>
-                <button class="btn i-t">تایید</button>
+                <button class="btn i-t">Confirm</button>
                 <a href="#" onclick="
                 event.preventDefault();
                 document.getElementById('resend-code').submit()
-                ">ارسال مجدد کد فعالسازی</a>
+                ">Resend activation code</a>
 
             </div>
             <div class="form-footer">
-                <a href="{{ route('register') }}">صفحه ثبت نام</a>
+                <a href="{{ route('register') }}">Registration page</a>
             </div>
         </form>
 

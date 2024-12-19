@@ -9,12 +9,12 @@
     <a class="scrollToTop"></a>
     <div class="container">
         <div class="f-links">
-            <div class="col--2"><a href="">خدمات هاستینگ همن</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
-            <div class="col--2"><a href="">لینک اول</a></div>
+            <div class="col--2"><a href="">Hemn Hosting Services</a></div>
+            <div class="col--2"><a href="">First Link</a></div>
+            <div class="col--2"><a href="">First Link</a></div>
+            <div class="col--2"><a href="">First Link</a></div>
+            <div class="col--2"><a href="">First Link</a></div>
+            <div class="col--2"><a href="">First Link</a></div>
         </div>
     </div>
     <div class="line"></div>
@@ -22,19 +22,14 @@
         <div class="f-about">
             <div class="col--8">
                 <p>
-                     Hemn_ORG مرجعی تخصصی برای یادگیری طراحی و برنامه نویسی وب و موبایل است. ما در وب اموز با بهره گیری از
-                    نیروهای متخصص، باتجربه تمام تلاش خود را برای تهیه و تولید آموزش های با کیفیت و کامل و حرفه ای انجام
-                    می دهیم. باور ما اینست که کاربران ایرانی لایق بهترین ها هستند و باید بهترین و بروزترین فیلم های
-                    آموزشی، در اختیار آنها قرار بگیرد تا بتوانند به سرعت پیشرفت کنند و جزء بهترین ها شوند. امید است که
-                    با همراهی هر چه بیشتر شما کاربران عزیز در این راه، ما را برای حرکتی قدرتمند در مسیر این هدف باارزش
-                    یاری دهید.
+                    Hemn_ORG is a specialized reference for learning web and mobile design and programming. At Web Amoz, we strive to produce high-quality, complete, and professional training by utilizing experienced and specialized personnel. We believe that Iranian users deserve the best and should have access to the best and most up-to-date educational videos so that they can progress quickly and become among the best. We hope that with your continued support, we can make a powerful move towards this valuable goal.
                 </p>
             </div>
         </div>
     </div>
     <div class="webamooz">
-        طراحی و توسعه با لاراول توسط
-        <a href="https://github.com/cyaxaress/lms">همن موافقی</a>
+        Designed and developed with Laravel by
+        <a href="https://github.com/cyaxaress/lms">Hemn Movafaghi</a>
         © {{ date("Y") }}
     </div>
 </footer>

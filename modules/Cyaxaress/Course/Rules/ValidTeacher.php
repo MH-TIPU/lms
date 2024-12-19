@@ -17,6 +17,6 @@ class ValidTeacher implements Rule
 
     public function message()
     {
-        return 'کاربر انتخاب شده یک مدرس معتبر نیست.';
+        return 'The selected user is not a valid teacher.';
     }
 }

@@ -9,14 +9,14 @@
         <div class="form-content form-account">
 
             <input id="email" type="text" class="txt-l txt @error('email') is-invalid @enderror" name="email"
-             placeholder="ایمیل یا شماره موبایل" value="{{ old('email') }}" required autocomplete="email" autofocus>
+             placeholder="Email or Mobile Number" value="{{ old('email') }}" required autocomplete="email" autofocus>
             @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
 
-            <input  id="password" type="password" class="txt-l txt" placeholder="رمز عبور"
+            <input  id="password" type="password" class="txt-l txt" placeholder="Password"
                    name="password" required autocomplete="current-password"
             >
             @error('password')
@@ -26,18 +26,18 @@
             @enderror
 
             <br>
-            <button class="btn btn--login">ورود</button>
+            <button class="btn btn--login">Login</button>
             <label class="ui-checkbox">
-                مرا بخاطر داشته باش
+                Remember Me
                 <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <span class="checkmark"></span>
             </label>
             <div class="recover-password">
-                <a href="{{ route('password.request') }}">بازیابی رمز عبور</a>
+                <a href="{{ route('password.request') }}">Recover Password</a>
             </div>
         </div>
         <div class="form-footer">
-            <a href="{{ route('register') }}">صفحه ثبت نام</a>
+            <a href="{{ route('register') }}">Register Page</a>
         </div>
     </form>
 @endsection

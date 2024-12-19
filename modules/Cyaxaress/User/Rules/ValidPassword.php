@@ -35,6 +35,6 @@ class ValidPassword implements Rule
      */
     public function message()
     {
-        return 'فرمت پسورد نامعتبر است.';
+        return 'The password format is invalid.';
     }
 }

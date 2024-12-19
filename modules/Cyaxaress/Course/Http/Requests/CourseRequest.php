@@ -40,16 +40,16 @@ class CourseRequest extends FormRequest
     public function attributes()
     {
         return [
-            'price' => 'قیمت',
-            'slug' => 'عنوان انگلیسی',
-            'priority' => 'ردیف دوره',
-            'percent' => 'درصد مدرس',
-            'teacher_id' => 'مدرس',
-            'category_id' => 'دسته بندی',
-            'status' => 'وضعیت',
-            'type' => 'نوع',
-            'body' => 'توضیحات',
-            'image' => 'بنر دوره',
+            'price' => 'Price',
+            'slug' => 'English Title',
+            'priority' => 'Course Priority',
+            'percent' => 'Teacher Percentage',
+            'teacher_id' => 'Teacher',
+            'category_id' => 'Category',
+            'status' => 'Status',
+            'type' => 'Type',
+            'body' => 'Description',
+            'image' => 'Course Banner',
         ];
     }
 

@@ -32,14 +32,14 @@ class PaymentController extends Controller
             $dates->put(now()->addDays($i)->format('Y-m-d'), 0);
         }
 
-        $summery = $paymentRepo->getDailySummery($dates);
+        $summary = $paymentRepo->getDailySummary($dates);
 
         return view('Payment::index', compact(
             'payments',
             'last30DaysTotal',
             'last30DaysBenefit',
             'totalSell',
-            'totalBenefit', 'last30DaysSellerShare', 'summery', 'dates'));
+            'totalBenefit', 'last30DaysSellerShare', 'summary', 'dates'));
     }
 
     public function callback(Request $request)
@@ -48,7 +48,7 @@ class PaymentController extends Controller
         $paymentRepo = new PaymentRepo();
         $payment = $paymentRepo->findByInvoiceId($gateway->getInvoiceIdFromRequest($request));
         if (! $payment) {
-            newFeedback('تراکنش ناموفق', 'تراکنش مورد نظر یاقت نشد!', 'error');
+            newFeedback('Unsuccessful transaction', 'The desired transaction was not found!', 'error');
 
             return redirect('/');
         }
@@ -56,12 +56,12 @@ class PaymentController extends Controller
         $result = $gateway->verify($payment);
 
         if (is_array($result)) {
-            newFeedback('عملیات ناموفق', $result['message'], 'error');
+            newFeedback('Unsuccessful operation', $result['message'], 'error');
             $paymentRepo->changeStatus($payment->id, Payment::STATUS_FAIL);
             //todo
         } else {
             event(new PaymentWasSuccessful($payment));
-            newFeedback('عملیات موفق', 'پرداخت با موفقیت انجام شد.', 'success');
+            newFeedback('Successful operation', 'Payment was successful.', 'success');
             $paymentRepo->changeStatus($payment->id, Payment::STATUS_SUCCESS);
         }
 

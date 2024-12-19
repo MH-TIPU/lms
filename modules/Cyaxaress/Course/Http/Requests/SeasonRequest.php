@@ -22,8 +22,9 @@ class SeasonRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'عنوان فصل',
-            'number' => 'شماره فصل',
+            'title' => 'Season Title',
+            'number' => 'Season Number',
         ];
     }
 }
+

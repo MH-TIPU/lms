@@ -30,7 +30,7 @@ class SettlementService
         ) {
             if (
                 $settlement->user->balance < $settlement->amount) {
-                newFeedback('ناموفق', 'موجودی حساب کاربر کافی نمیباشد!', 'error');
+                newFeedback('Unsuccessful', 'User account balance is insufficient!', 'error');
 
                 return;
             }

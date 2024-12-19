@@ -35,14 +35,15 @@ class LessonRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title' => 'عنوان درس',
-            'slug' => 'عنوان انگلیسی درس',
-            'number' => 'شماره درس',
-            'time' => 'مدت زمان درس',
-            'season_id' => 'سرفصل',
-            'free' => 'رایگان',
-            'lesson_file' => 'فایل درس',
-            'body' => 'توضیحات درس',
+            'title' => 'Lesson Title',
+            'slug' => 'Lesson English Title',
+            'number' => 'Lesson Number',
+            'time' => 'Lesson Duration',
+            'season_id' => 'Season',
+            'free' => 'Free',
+            'lesson_file' => 'Lesson File',
+            'body' => 'Lesson Description',
         ];
     }
 }
+

@@ -140,7 +140,7 @@ $('.checkedAll').on('click', function (e) {
     }
 });
 function acceptAllLessons(route) {
-    if (confirm("آیا از تایید همه جلسات این دوره اطمینان دارید؟")) {
+    if (confirm("Are you sure you want to confirm all sessions of this course?")) {
         $("<form action='"+ route +"' method='post'>" +
             "<input type='hidden' name='_token' value='"+ $('meta[name="_token"]').attr('content') +"' /> "+
             "<input type='hidden' name='_method' value='patch'> " +
@@ -148,19 +148,19 @@ function acceptAllLessons(route) {
     }
 }
 function acceptMultiple(route) {
-    doMultipleAction(route, "آیا مطمئن هستید که می خواهید این سطرها را تایید کنید؟",'patch')
+    doMultipleAction(route, "Are you sure you want to confirm these rows?",'patch')
 }
 function rejectMultiple(route) {
-    doMultipleAction(route, "آیا مطمئن هستید که می خواهید این سطرها را رد کنید؟",'patch')
+    doMultipleAction(route, "Are you sure you want to reject these rows?",'patch')
 }
 
 function deleteMultiple(route) {
-    doMultipleAction(route,"آیا مطمئن هستید که می خواهید این سطرها را حذف کنید؟" ,"delete")
+    doMultipleAction(route,"Are you sure you want to delete these rows?" ,"delete")
 }
 function doMultipleAction(route,message, method){
     var allVals = getSelectedItems();
     if (allVals.length <= 0) {
-        alert("یک سطر انتخاب کنید");
+        alert("Select a row");
     } else {
         WRN_PROFILE_DELETE = message;
         var check = confirm(WRN_PROFILE_DELETE);
@@ -182,7 +182,7 @@ function getSelectedItems() {
 }
 
 $('.course__detial .item-delete').on('click', function (e) {
-    WRN_PROFILE_DELETE = "آیا مطمئن هستید که می خواهید این سطر را حذف کنید؟";
+    WRN_PROFILE_DELETE = "Are you sure you want to delete this row?";
     var check = confirm(WRN_PROFILE_DELETE);
     if (check == true) {
         $('table tr').filter("[data-row-id='" + $(this).attr('data-id') + "']").remove();
@@ -218,49 +218,14 @@ function updateConfirmationStatus(event, route, message, status, field = 'confir
         $.post(route, { _method: "PATCH", _token: $('meta[name="_token"]').attr('content') })
             .done(function (response) {
                 $(event.target).closest(parent).find(target + field).text(status);
-                if (status == "تایید شده") {
+                if (status == "Confirmed") {
                     $(event.target).closest(parent).find(target + field).html("<span class='text-success'>" + status + "</span>");
                 }else{
                     $(event.target).closest(parent).find(target + field).html("<span class='text-error'>" + status + "</span>");
                 }
 
                 $.toast({
-                    heading: 'عملیات موفق',
+                    heading: 'Operation Successful',
                     text: response.message,
                     showHideTransition: 'slide',
-                    icon: 'success'
-                })
-            })
-            .fail(function (response) {
-                $.toast({
-                    heading: 'عملیات ناموفق',
-                    text: response.message,
-                    showHideTransition: 'slide',
-                    icon: 'error'
-                })
-            })
-    }
-}
-function deleteItem(event, route, element = 'tr') {
-    event.preventDefault();
-    if(confirm('آیا از حذف این آیتم اطمینان دارید؟')){
-        $.post(route, { _method: "delete", _token: $('meta[name="_token"]').attr('content') })
-            .done(function (response) {
-                event.target.closest(element).remove();
-                $.toast({
-                    heading: 'عملیات موفق',
-                    text: response.message,
-                    showHideTransition: 'slide',
-                    icon: 'success'
-                })
-            })
-            .fail(function (response) {
-                $.toast({
-                    heading: 'عملیات ناموفق',
-                    text: response.message,
-                    showHideTransition: 'slide',
-                    icon: 'error'
-                })
-            })
-    }
-}
+                   

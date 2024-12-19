@@ -2,7 +2,7 @@
 
 use Morilog\Jalali\Jalalian;
 
-function newFeedback($title = 'عملیات موفقیت آمیز', $body = 'عملیات با موفقیت انجام شد', $type = 'success')
+function newFeedback($title = 'Operation Successful', $body = 'The operation was successful', $type = 'success')
 {
     $session = session()->has('feedbacks') ? session()->get('feedbacks') : [];
     $session[] = ['title' => $title, 'body' => $body, 'type' => $type];

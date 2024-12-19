@@ -11,7 +11,7 @@
                             <span class="tutor-image" id="tutor-image">
                                 <img src="{{ $tutor->thumb }}" class="tutor-avatar-img"></span>
                             <div class="tutor-author-name">
-                                <a id="tutor-author-name" href="" title="همن موافقی">
+                                <a id="tutor-author-name" href="" title="Heman Movaqi">
                                     <h3 class="title"><span class="tutor-author--name">{{ $tutor->name }}</span></h3>
                                 </a>
                             </div>
@@ -31,12 +31,12 @@
                     <div class="tutor-item">
                         <div class="stat">
                             <span class="tutor-number tutor-count-courses">{{ count($tutor->courses) }} </span>
-                            <span class="">تعداد دوره ها</span>
+                            <span class="">Number of courses</span>
                         </div>
                         <div class="stat">
 
                             <span class="tutor-number">{{ $tutor->studentsCount() }} </span>
-                            <span class="">تعداد  دانشجویان</span>
+                            <span class="">Number of students</span>
                         </div>
 
                     </div>
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="box-filter">
                 <div class="b-head">
-                    <h2>دوره های {{ $tutor->name }}</h2>
+                    <h2>{{ $tutor->name }}'s Courses</h2>
                 </div>
                 <div class="posts">
                     @foreach($tutor->courses as $courseItem)

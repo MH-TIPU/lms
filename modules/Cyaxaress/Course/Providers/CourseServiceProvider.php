@@ -36,7 +36,7 @@ class CourseServiceProvider extends ServiceProvider
     {
         config()->set('sidebar.items.courses', [
             'icon' => 'i-courses',
-            'title' => 'دوره ها',
+            'title' => 'Courses',
             'url' => route('courses.index'),
             'permission' => [
                 Permission::PERMISSION_MANAGE_COURSES,
@@ -45,3 +45,4 @@ class CourseServiceProvider extends ServiceProvider
         ]);
     }
 }
+

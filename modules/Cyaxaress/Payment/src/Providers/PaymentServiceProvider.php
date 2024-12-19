@@ -33,7 +33,7 @@ class PaymentServiceProvider extends ServiceProvider
 
         config()->set('sidebar.items.payments', [
             'icon' => 'i-transactions',
-            'title' => 'تراکنش ها',
+            'title' => 'Transactions',
             'url' => route('payments.index'),
             'permission' => [
                 Permission::PERMISSION_MANAGE_COURSES,
@@ -42,13 +42,13 @@ class PaymentServiceProvider extends ServiceProvider
 
         config()->set('sidebar.items.my-purchases', [
             'icon' => 'i-my__purchases',
-            'title' => 'خریدهای من',
+            'title' => 'My Purchases',
             'url' => route('purchases.index'),
         ]);
 
         config()->set('sidebar.items.settlements', [
             'icon' => 'i-checkouts',
-            'title' => ' تسویه حساب ها',
+            'title' => 'Settlements',
             'url' => route('settlements.index'),
             'permission' => [
                 Permission::PERMISSION_TEACH,
@@ -57,7 +57,7 @@ class PaymentServiceProvider extends ServiceProvider
         ]);
         config()->set('sidebar.items.settlementsRequest', [
             'icon' => 'i-checkout__request',
-            'title' => 'درخواست تسویه',
+            'title' => 'Settlement Request',
             'url' => route('settlements.create'),
             'permission' => [
                 Permission::PERMISSION_TEACH,

@@ -1,20 +1,20 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('categories.index') }}" title="دسته بندی ها">دسته بندی ها</a></li>
+    <li><a href="{{ route('categories.index') }}" title="Categories">Categories</a></li>
 @endsection
 @section('content')
-    <div class="row no-gutters  ">
+    <div class="row no-gutters">
         <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
-            <p class="box__title">دسته بندی ها</p>
+            <p class="box__title">Categories</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>نام دسته بندی</th>
-                        <th>نام انگلیسی دسته بندی</th>
-                        <th>دسته پدر</th>
-                        <th>عملیات</th>
+                        <th>ID</th>
+                        <th>Category Name</th>
+                        <th>Category Slug</th>
+                        <th>Parent Category</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,9 +25,9 @@
                         <td>{{ $category->slug }}</td>
                         <td>{{ $category->parent }}</td>
                         <td>
-                            <a href="" onclick="deleteItem(event, '{{ route('categories.destroy', $category->id) }}')" class="item-delete mlg-15" title="حذف"></a>
-                            <a href="" target="_blank" class="item-eye mlg-15" title="مشاهده"></a>
-                            <a href="{{ route('categories.edit',  $category->id) }}" class="item-edit " title="ویرایش"></a>
+                            <a href="" onclick="deleteItem(event, '{{ route('categories.destroy', $category->id) }}')" class="item-delete mlg-15" title="Delete"></a>
+                            <a href="" target="_blank" class="item-eye mlg-15" title="View"></a>
+                            <a href="{{ route('categories.edit',  $category->id) }}" class="item-edit" title="Edit"></a>
                         </td>
                     </tr>
                     @endforeach

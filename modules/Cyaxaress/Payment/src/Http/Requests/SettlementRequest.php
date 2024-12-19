@@ -45,8 +45,8 @@ class SettlementRequest extends FormRequest
     public function attributes()
     {
         return [
-            'cart' => 'شماره کارت',
-            'amount' => 'مبلغ تسویه حساب',
+            'cart' => 'Card Number',
+            'amount' => 'Settlement Amount',
         ];
     }
 }

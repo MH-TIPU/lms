@@ -21,7 +21,6 @@ class UserController extends Controller
 
     public function __construct(UserRepo $userRepo)
     {
-
         $this->userRepo = $userRepo;
     }
 
@@ -99,7 +98,6 @@ class UserController extends Controller
         newFeedback();
 
         return back();
-
     }
 
     public function destroy($userId)
@@ -123,7 +121,7 @@ class UserController extends Controller
     {
         $this->authorize('addRole', User::class);
         $user->assignRole($request->role);
-        newFeedback('موفقیت آمیز', " نقش کاربری {$request->role}  به کاربر {$user->name} داده شد.", 'success');
+        newFeedback('Success', "User role {$request->role} has been assigned to user {$user->name}.", 'success');
 
         return back();
     }

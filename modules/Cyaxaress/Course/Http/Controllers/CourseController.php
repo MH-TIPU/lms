@@ -154,7 +154,7 @@ class CourseController extends Controller
         [$amount, $discounts] = $course->getFinalPrice(request()->code, true);
         if ($amount <= 0) {
             $courseRepo->addStudentToCourse($course, auth()->id());
-            newFeedback('عملیات موفقیت آمیز', 'شما با موفقیت در دوره ثبت نام کردید.');
+            newFeedback('Successful operation', 'You have successfully enrolled in the course.');
 
             return redirect($course->path());
         }
@@ -166,19 +166,19 @@ class CourseController extends Controller
     private function courseCanBePurchased(Course $course)
     {
         if ($course->type == Course::TYPE_FREE) {
-            newFeedback('عملیات ناموفق', 'دوره های رایگان قابل خریداری نیستند!', 'error');
+            newFeedback('Unsuccessful operation', 'Free courses cannot be purchased!', 'error');
 
             return false;
         }
 
         if ($course->status == Course::STATUS_LOCKED) {
-            newFeedback('عملیات ناموفق', 'این دوره قفل شده است و قعلا قابل خریداری نیست!', 'error');
+            newFeedback('Unsuccessful operation', 'This course is locked and cannot be purchased at the moment!', 'error');
 
             return false;
         }
 
         if ($course->confirmation_status != Course::CONFIRMATION_STATUS_ACCEPTED) {
-            newFeedback('عملیات ناموفق', 'دوره ی انتخابی شما هنوز تایید نشده است!', 'error');
+            newFeedback('Unsuccessful operation', 'The selected course has not been approved yet!', 'error');
 
             return false;
         }
@@ -189,13 +189,13 @@ class CourseController extends Controller
     private function authUserCanPurchaseCourse(Course $course)
     {
         if (auth()->id() == $course->teacher_id) {
-            newFeedback('عملیات ناموفق', 'شما مدرس این دوره هستید.', 'error');
+            newFeedback('Unsuccessful operation', 'You are the teacher of this course.', 'error');
 
             return false;
         }
 
         if (auth()->user()->can('download', $course)) {
-            newFeedback('عملیات ناموفق', 'شما به دوره دسترسی دارید.', 'error');
+            newFeedback('Unsuccessful operation', 'You have access to the course.', 'error');
 
             return false;
         }

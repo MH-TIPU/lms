@@ -1,11 +1,11 @@
 @component('mail::message')
-# یک کامنت جدید برای دوره ی"{{ $comment->commentable->title }}" ارسال شده است.
-مدرس گرامی یک کامنت جدید برای دوره ی"{{ $comment->commentable->title }}" در سایت Hemn_org ارسال شده است. لطفا در اسرع وقت پاسخ مناسب ارسال فرمایید.
+# A new comment has been submitted for the course "{{ $comment->commentable->title }}".
+Dear instructor, a new comment has been submitted for the course "{{ $comment->commentable->title }}" on the Hemn_org website. Please provide an appropriate response as soon as possible.
 @component('mail::panel')
 @component('mail::button', ['url' => $comment->commentable->path()])
-مشاهده دوره
+View Course
 @endcomponent
 @endcomponent
 
-با تشکر,{{ config('app.name') }}
+Thank you, {{ config('app.name') }}
 @endcomponent

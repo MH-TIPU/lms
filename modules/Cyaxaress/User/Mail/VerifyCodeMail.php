@@ -23,7 +23,6 @@ class VerifyCodeMail extends Mailable
      */
     public function __construct($code)
     {
-
         $this->code = $code;
     }
 
@@ -34,7 +33,7 @@ class VerifyCodeMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('User::mails.verify-mail')->
-            subject('Hemn_org | کد فعالسازی');
+        return $this->markdown('User::mails.verify-mail')
+            ->subject('Hemn_org | Activation Code');
     }
 }

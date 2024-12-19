@@ -4,38 +4,38 @@
     @can(\Cyaxaress\RolePermissions\Models\Permission::PERMISSION_TEACH)
     <div class="row no-gutters font-size-13 margin-bottom-10">
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> موجودی حساب فعلی </p>
-            <p>{{ number_format(auth()->user()->balance) }} تومان</p>
+            <p> Current Account Balance </p>
+            <p>{{ number_format(auth()->user()->balance) }} Toman</p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> کل فروش دوره ها</p>
-            <p>{{ number_format($totalSales) }} تومان</p>
+            <p> Total Course Sales</p>
+            <p>{{ number_format($totalSales) }} Toman</p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> کارمزد کسر شده </p>
-            <p>{{ number_format($totalSiteShare) }} تومان</p>
+            <p> Deducted Commission </p>
+            <p>{{ number_format($totalSiteShare) }} Toman</p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white margin-bottom-10">
-            <p> درآمد خالص </p>
-            <p>{{ number_format($totalBenefit) }} تومان</p>
+            <p> Net Income </p>
+            <p>{{ number_format($totalBenefit) }} Toman</p>
         </div>
     </div>
     <div class="row no-gutters font-size-13 margin-bottom-10">
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> درآمد امروز </p>
-            <p>{{ number_format($todayBenefit) }} تومان</p>
+            <p> Today's Income </p>
+            <p>{{ number_format($todayBenefit) }} Toman</p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> درآمد 30 روز گذاشته</p>
-            <p>{{ number_format($last30DaysBenefit) }} تومان</p>
+            <p> Income in the Last 30 Days</p>
+            <p>{{ number_format($last30DaysBenefit) }} Toman</p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p> تسویه حساب در حال انجام </p>
-            <p>0 تومان </p>
+            <p> Ongoing Settlements </p>
+            <p>0 Toman </p>
         </div>
         <div class="col-3 padding-20 border-radius-3 bg-white  margin-bottom-10">
-            <p>تراکنش های موفق امروز ({{ $todaySuccessPaymentsCount }}) تراکنش </p>
-            <p>{{ number_format($todaySuccessPaymentsTotal) }} تومان</p>
+            <p> Successful Transactions Today ({{ $todaySuccessPaymentsCount }}) Transactions </p>
+            <p>{{ number_format($todaySuccessPaymentsTotal) }} Toman</p>
         </div>
     </div>
     <div class="row no-gutters font-size-13 margin-bottom-10">
@@ -46,32 +46,32 @@
         </div>
         <div class="col-4 info-amount padding-20 bg-white margin-bottom-12-p margin-bottom-10 border-radius-3">
 
-            <p class="title icon-outline-receipt">موجودی قابل تسویه </p>
+            <p class="title icon-outline-receipt">Settleable Balance </p>
             <p class="amount-show color-444">
-                {{ number_format(auth()->user()->balance) }}<span> تومان </span></p>
-            <p class="title icon-sync">در حال تسویه</p>
-            <p class="amount-show color-444">0<span> تومان </span></p>
-            <a href="/" class=" all-reconcile-text color-2b4a83">همه تسویه حساب ها</a>
+                {{ number_format(auth()->user()->balance) }}<span> Toman </span></p>
+            <p class="title icon-sync">In Settlement</p>
+            <p class="amount-show color-444">0<span> Toman </span></p>
+            <a href="/" class=" all-reconcile-text color-2b4a83">All Settlements</a>
         </div>
     </div>
     @endcan
     <div class="row bg-white no-gutters font-size-13">
         <div class="title__row">
-            <p>تراکنش های اخیر شما</p>
-            <a class="all-reconcile-text margin-left-20 color-2b4a83">نمایش همه تراکنش ها</a>
+            <p>Your Recent Transactions</p>
+            <a class="all-reconcile-text margin-left-20 color-2b4a83">View All Transactions</a>
         </div>
         <div class="table__box">
             <table width="100%" class="table">
                 <thead role="rowgroup">
                 <tr role="row" class="title-row">
-                    <th>شناسه پرداخت</th>
-                    <th>ایمیل پرداخت کننده</th>
-                    <th>مبلغ (تومان)</th>
-                    <th>درامد شما</th>
-                    <th>درامد سایت</th>
-                    <th>نام دوره</th>
-                    <th>تاریخ و ساعت</th>
-                    <th>وضعیت</th>
+                    <th>Payment ID</th>
+                    <th>Payer Email</th>
+                    <th>Amount (Toman)</th>
+                    <th>Your Income</th>
+                    <th>Site Income</th>
+                    <th>Course Name</th>
+                    <th>Date and Time</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -45,15 +45,15 @@ class CommentApprovedNotification extends Notification
         if (! empty($notifiable->telegram)) {
             return TelegramMessage::create()
                 ->to($notifiable->telegram)
-                ->content('دیدگاه شما تایید شد.')
-                ->button('مشاهده دوره', $this->comment->commentable->path());
+                ->content('Your comment has been approved.')
+                ->button('View Course', $this->comment->commentable->path());
         }
     }
 
     public function toArray($notifiable)
     {
         return [
-            'message' => 'دیدگاه شما تایید شد.',
+            'message' => 'Your comment has been approved.',
             'url' => $this->comment->commentable->path(),
         ];
     }

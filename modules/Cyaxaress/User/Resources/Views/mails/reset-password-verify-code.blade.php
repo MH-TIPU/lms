@@ -1,12 +1,12 @@
 @component('mail::message')
-# کد بازیابی رمز عبور حساب شما در Hemn_org
+# Your password reset code at Hemn_org
 
-این ایمیل به درخواست شما جهت بازیابی رمز عبور در سایت Hemn_org برای شما ارسال شده است. **در صورتی که این درخواست توسط شما انجام نشده است** این ایمیل را نادیده بگیرید.
+This email has been sent to you at your request to reset your password on the Hemn_org website. **If you did not make this request**, please ignore this email.
 
 @component('mail::panel')
-کد بازیابی رمز عبور شما: {{ $code }}
+Your password reset code: {{ $code }}
 @endcomponent
 
-با تشکر,<br>
+Thank you,<br>
 {{ config('app.name') }}
 @endcomponent

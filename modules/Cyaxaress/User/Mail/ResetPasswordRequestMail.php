@@ -23,7 +23,6 @@ class ResetPasswordRequestMail extends Mailable
      */
     public function __construct($code)
     {
-
         $this->code = $code;
     }
 
@@ -34,7 +33,7 @@ class ResetPasswordRequestMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('User::mails.reset-password-verify-code')->
-            subject('Hemn_org | بازیابی رمز عبور');
+        return $this->markdown('User::mails.reset-password-verify-code')
+            ->subject('Hemn_org | Password Recovery');
     }
 }

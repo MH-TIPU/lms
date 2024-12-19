@@ -46,21 +46,21 @@ class CommentSubmittedNotification extends Notification
         if (! empty($notifiable->telegram)) {
             return TelegramMessage::create()
                 ->to($notifiable->telegram)
-                ->content('یک دیدگاه جدید برای دوره ی شما در Hemn_org ارسال شده است.')
-                ->button('مشاهده دوره', $this->comment->commentable->path())
-                ->button('مدیریت دیدگاه ها', route('comments.index'));
+                ->content('A new comment has been submitted for your course on Hemn_org.')
+                ->button('View Course', $this->comment->commentable->path())
+                ->button('Manage Comments', route('comments.index'));
         }
     }
 
     public function toSMS($notifiable)
     {
-        return 'یک دیدگاه جدید برای دوره ی شما در Hemn_org ارسال شده است. جهت مشاهده و ارسال پاسخ روی لینک زیر کلیک فرمایید.'."\n".route('comments.index');
+        return 'A new comment has been submitted for your course on Hemn_org. Click the link below to view and respond.'."\n".route('comments.index');
     }
 
     public function toArray($notifiable): array
     {
         return [
-            'message' => 'دیدگاه جدید برای دوره ی شما ثبت شده است.',
+            'message' => 'A new comment has been submitted for your course.',
             'url' => route('comments.index'),
         ];
     }

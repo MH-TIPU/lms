@@ -35,6 +35,6 @@ class ValidMobile implements Rule
      */
     public function message()
     {
-        return 'فرمت موبایل نامعتبر است. شماره موبایل باید با 9 شروع بشود و بدون فاصله وارد شود.';
+        return 'The mobile format is invalid. The mobile number must start with 9 and be entered without spaces.';
     }
 }

@@ -6,12 +6,12 @@
             <img src="/img/Hemn_ORG.png" alt="">
         </a>
         <div class="form-content form-account">
-            <input type="text" class="txt-l txt" placeholder="ایمیل">
+            <input type="text" class="txt-l txt" placeholder="Email">
             <br>
-            <button class="btn btn-recoverpass">بازیابی</button>
+            <button class="btn btn-recoverpass">Recover</button>
         </div>
         <div class="form-footer">
-            <a href="login.html">صفحه ورود</a>
+            <a href="login.html">Login Page</a>
         </div>
     </form>
 @endsection

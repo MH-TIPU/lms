@@ -9,7 +9,7 @@
                     <h1 class="title"> {{ $course->title }}</h1>
                     <div class="breadcrumb">
                         <ul>
-                            <li><a href="/" title="خانه">خانه</a></li>
+                            <li><a href="/" title="Home">Home</a></li>
                             @if($course->category->parentCategory)
                                 <li><a href="{{ $course->category->parentCategory->path() }}"
                                        title="{{ $course->category->parentCategory->title }}">
@@ -29,50 +29,50 @@
                     <div class="product-info-box">
                         <div class="discountBadge d-none">
                             <p>45%</p>
-                            تخفیف
+                            Discount
                         </div>
                         @auth
                             @if(auth()->id() == $course->teacher_id)
-                                <p class="mycourse ">شما مدرس این دوره هستید</p>
+                                <p class="mycourse ">You are the instructor of this course</p>
                             @elseif(auth()->user()->can("download", $course))
-                                <p class="mycourse">شما این دوره رو خریداری کرده اید</p>
+                                <p class="mycourse">You have purchased this course</p>
                             @else
                                 <div class="sell_course">
-                                    <strong>قیمت :</strong>
+                                    <strong>Price :</strong>
                                     @if($course->getDiscount())
                                         <del class="discount-Price">{{ $course->getFormattedPrice() }}</del>
                                     @endif
                                     <p class="price">
                         <span class="woocommerce-Price-amount amount">{{ $course->getFormattedFinalPrice() }}
-                            <span class="woocommerce-Price-currencySymbol">تومان</span>
+                            <span class="woocommerce-Price-currencySymbol">Toman</span>
                         </span>
                                     </p>
                                 </div>
-                                <button class="btn buy btn-buy">خرید دوره</button>
+                                <button class="btn buy btn-buy">Buy Course</button>
                             @endif
                         @else
                             <div class="sell_course ">
-                                <strong>قیمت :</strong>
+                                <strong>Price :</strong>
                                 @if($course->getDiscount())
                                     <del class="discount-Price">{{ $course->getFormattedPrice() }}</del>
                                 @endif
                                 <p class="price">
                         <span class="woocommerce-Price-amount amount">{{ $course->getFormattedPrice() }}
-                            <span class="woocommerce-Price-currencySymbol">تومان</span>
+                            <span class="woocommerce-Price-currencySymbol">Toman</span>
                         </span>
                                 </p>
                             </div>
-                            <p>جهت خرید دوره ابتدا در سایت لاگین کنید.</p>
-                            <a href="{{ route('login')}}" class="btn text-white w-100">ورود به سایت</a>
+                            <p>To purchase the course, please log in first.</p>
+                            <a href="{{ route('login')}}" class="btn text-white w-100">Login</a>
                         @endauth
                         <div class="rating-star">
                             <div class="rating">
                                 <div class="star">
-                                    <span class="rate" data-rate="1" data-w="100%" data-title="عالی"></span>
-                                    <span class="rate" data-rate="2" data-w="80%" data-title="خوب"></span>
-                                    <span class="rate" data-rate="3" data-w="60%" data-title="معمولی"></span>
-                                    <span class="rate" data-rate="4" data-w="40%" data-title="ضعیف"></span>
-                                    <span class="rate" data-rate="5" data-w="20%" data-title="بد"></span>
+                                    <span class="rate" data-rate="1" data-w="100%" data-title="Excellent"></span>
+                                    <span class="rate" data-rate="2" data-w="80%" data-title="Good"></span>
+                                    <span class="rate" data-rate="3" data-w="60%" data-title="Average"></span>
+                                    <span class="rate" data-rate="4" data-w="40%" data-title="Poor"></span>
+                                    <span class="rate" data-rate="5" data-w="20%" data-title="Bad"></span>
                                 </div>
                                 <div class="fstar" style="width: 0">
                                     <span class="frate"></span>
@@ -84,40 +84,40 @@
                             </div>
                             <div class="schema-stars">
                                 <span class="value-rate text-message"> 4 </span>
-                                <span class="title-rate"> از </span>
+                                <span class="title-rate"> out of </span>
                                 <span class="value-rate"> 555 </span>
-                                <span class="title-rate">رأی</span>
+                                <span class="title-rate">votes</span>
                             </div>
                         </div>
                     </div>
                     <div class="product-info-box">
                         <div class="product-meta-info-list">
                             <div class="total_sales">
-                                تعداد دانشجو : <span>{{ count($course->students) }}</span>
+                                Number of students: <span>{{ count($course->students) }}</span>
                             </div>
                             <div class="meta-info-unit one">
-                                <span class="title">تعداد جلسات منتشر شده :  </span>
+                                <span class="title">Number of published sessions:  </span>
                                 <span class="vlaue">{{ $course->lessonsCount() }}</span>
                             </div>
                             <div class="meta-info-unit two">
-                                <span class="title">مدت زمان دوره تا الان : </span>
+                                <span class="title">Course duration so far: </span>
                                 <span class="vlaue">{{ $course->formattedDuration() }}</span>
                             </div>
                             <div class="meta-info-unit three">
-                                <span class="title">مدت زمان کل دوره : </span>
+                                <span class="title">Total course duration: </span>
                                 <span class="vlaue">-</span>
                             </div>
                             <div class="meta-info-unit four">
-                                <span class="title">مدرس دوره : </span>
+                                <span class="title">Course instructor: </span>
                                 <span class="vlaue">{{ $course->teacher->name }}</span>
                             </div>
                             <div class="meta-info-unit five">
-                                <span class="title">وضعیت دوره : </span>
+                                <span class="title">Course status: </span>
                                 <span class="vlaue">@lang($course->status)</span>
                             </div>
                             <div class="meta-info-unit six">
-                                <span class="title">پشتیبانی : </span>
-                                <span class="vlaue">دارد</span>
+                                <span class="title">Support: </span>
+                                <span class="vlaue">Available</span>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="short-link">
                         <div class="">
-                            <span>لینک کوتاه</span>
+                            <span>Short link</span>
                             <input class="short--link" value="{{ $course->shortUrl() }}">
                             <a href="{{ $course->shortUrl() }}" class="short-link-a"
                                data-link="{{ $course->shortUrl() }}"></a>
@@ -163,21 +163,21 @@
                             </video>
                         </div>
                     @endif
-                    <a href="{{ $lesson->downloadLink() }}" class="episode-download">دانلود این قسمت
-                        (قسمت {{ $lesson->number }})</a>
+                    <a href="{{ $lesson->downloadLink() }}" class="episode-download">Download this episode
+                        (Episode {{ $lesson->number }})</a>
                 @endif
                 <div class="course-description">
-                    <div class="course-description-title">توضیحات دوره</div>
+                    <div class="course-description-title">Course Description</div>
                     <div>
                         {!! $course->body !!}
                     </div>
                     <div class="tags">
                         <ul>
-                            <li><a href="">ری اکت</a></li>
+                            <li><a href="">React</a></li>
                             <li><a href="">reactjs</a></li>
-                            <li><a href="">جاوااسکریپت</a></li>
+                            <li><a href="">JavaScript</a></li>
                             <li><a href="">javascript</a></li>
-                            <li><a href="">reactjs چیست</a></li>
+                            <li><a href="">What is reactjs</a></li>
                         </ul>
                     </div>
                 </div>
@@ -187,45 +187,45 @@
         <div id="Modal-buy" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p>کد تخفیف را وارد کنید</p>
+                    <p>Enter discount code</p>
                     <div class="close">&times;</div>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="{{ route("courses.buy", $course->id) }}">
                         @csrf
                         <div>
-                            <input type="text" name="code" id="code" class="txt" placeholder="کد تخفیف را وارد کنید">
+                            <input type="text" name="code" id="code" class="txt" placeholder="Enter discount code">
                             <p id="response"></p>
                         </div>
-                        <button type="button" class="btn i-t " onclick="checkDiscountCode()">اعمال
+                        <button type="button" class="btn i-t " onclick="checkDiscountCode()">Apply
                             <img src="/img/loading.gif" alt="" id="loading" class="loading d-none">
                         </button>
 
                         <table class="table text-center table-bordered table-striped">
                             <tbody>
                             <tr>
-                                <th>قیمت کل دوره</th>
-                                <td> {{ $course->getFormattedPrice() }} تومان</td>
+                                <th>Total course price</th>
+                                <td> {{ $course->getFormattedPrice() }} Toman</td>
                             </tr>
                             <tr>
-                                <th>درصد تخفیف</th>
+                                <th>Discount percentage</th>
                                 <td><span id="discountPercent" data-value="{{ $course->getDiscountPercent()  }}">{{ $course->getDiscountPercent() }}</span>%</td>
                             </tr>
                             <tr>
-                                <th> مبلغ تخفیف</th>
+                                <th> Discount amount</th>
                                 <td class="text-red"><span
-                                        id="discountAmount" data-value="{{ $course->getDiscountAmount()  }}"> {{ $course->getDiscountAmount() }}</span> تومان
+                                        id="discountAmount" data-value="{{ $course->getDiscountAmount()  }}"> {{ $course->getDiscountAmount() }}</span> Toman
                                 </td>
                             </tr>
                             <tr>
-                                <th> قابل پرداخت</th>
+                                <th> Payable amount</th>
                                 <td class="text-blue"><span
-                                        id="payableAmount" data-value="{{ $course->getFinalPrice()  }}">{{ $course->getFormattedFinalPrice() }}</span> تومان
+                                        id="payableAmount" data-value="{{ $course->getFinalPrice()  }}">{{ $course->getFormattedFinalPrice() }}</span> Toman
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        <button type="submit" class="btn btn i-t ">پرداخت آنلاین</button>
+                        <button type="submit" class="btn btn i-t ">Online Payment</button>
                     </form>
                 </div>
             </div>
@@ -248,10 +248,10 @@
                     $("#discountPercent").text( parseInt($("#discountPercent").attr("data-value")) +  data.discountPercent)
                     $("#discountAmount").text(parseInt($("#discountAmount").attr("data-value")) + data.discountAmount)
                     $("#payableAmount").text(parseInt($("#payableAmount").attr("data-value")) - data.discountAmount)
-                    $("#response").text("کد تخفیف با موفقیت اعمال شد.").removeClass("text-error").addClass("text-success")
+                    $("#response").text("Discount code applied successfully.").removeClass("text-error").addClass("text-success")
                 })
                 .fail(function (data) {
-                    $("#response").text("کد وارده شده برای این درس معتبر نیست.").removeClass("text-success").addClass("text-error")
+                    $("#response").text("The entered code is not valid for this course.").removeClass("text-success").addClass("text-error")
                 })
                 .always(function () {
                     $("#loading").addClass("d-none")

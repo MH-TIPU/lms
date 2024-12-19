@@ -22,8 +22,8 @@ class ReplyRequest extends FormRequest
     public function attributes()
     {
         return [
-            'lesson_file' => 'فایل پیوست',
-            'body' => 'متن تیکت',
+            'lesson_file' => 'Attachment File',
+            'body' => 'Ticket Text',
         ];
     }
 }

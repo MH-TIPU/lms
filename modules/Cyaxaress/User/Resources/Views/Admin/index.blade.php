@@ -1,24 +1,24 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('users.index') }}" title="کاربران">کاربران</a></li>
+    <li><a href="{{ route('users.index') }}" title="Users">Users</a></li>
 @endsection
 @section('content')
-    <div class="row no-gutters  ">
+    <div class="row no-gutters">
         <div class="col-12 margin-left-10 margin-bottom-15 border-radius-3">
-            <p class="box__title">کاربران</p>
+            <p class="box__title">Users</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>نام و نام خانوادگی</th>
-                        <th>ایمیل</th>
-                        <th>شماره موبایل</th>
-                        <th>سطح کاربری	</th>
-                        <th>تاریخ عضویت</th>
-                        <th>ای پی</th>
-                        <th>وضعیت حساب</th>
-                        <th>عملیات</th>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>User Level</th>
+                        <th>Registration Date</th>
+                        <th>IP</th>
+                        <th>Account Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -37,12 +37,12 @@
                         </td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->ip }}</td>
-                        <td class="confirmation_status">{!! $user->hasVerifiedEmail() ? "<span class='text-success'>تایید شده</span>"  : "<span class='text-error'>تایید نشده</span>" !!}</td>
+                        <td class="confirmation_status">{!! $user->hasVerifiedEmail() ? "<span class='text-success'>Verified</span>"  : "<span class='text-error'>Not Verified</span>" !!}</td>
                         <td>
-                            <a href="" onclick="deleteItem(event, '{{ route('users.destroy', $user->id) }}')" class="item-delete mlg-15" title="حذف"></a>
-                            <a href="{{ route('users.edit', $user->id) }}" class="item-edit mlg-15" title="ویرایش"></a>
+                            <a href="" onclick="deleteItem(event, '{{ route('users.destroy', $user->id) }}')" class="item-delete mlg-15" title="Delete"></a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="item-edit mlg-15" title="Edit"></a>
                             <a href="" onclick="updateConfirmationStatus(event, '{{ route('users.manualVerify', $user->id) }}',
-                                'آیا از تایید این آیتم اطمینان دارید؟' , 'تایید شده')" class="item-confirm mlg-15" title="تایید"></a>
+                                'Are you sure you want to verify this item?' , 'Verified')" class="item-confirm mlg-15" title="Verify"></a>
                         </td>
                     </tr>
                     @endforeach

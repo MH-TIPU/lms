@@ -45,13 +45,14 @@ class UpdateProfileInformationRequest extends FormRequest
     public function attributes()
     {
         return [
-            'shaba' => 'شماره شبای بانکی',
-            'card_number' => 'شماره کارت بانکی',
-            'username' => 'نام کاربری',
-            'headline' => 'عنوان',
-            'bio' => 'بیو',
-            'password' => 'رمز عبور جدید',
-            'mobile' => 'موبایل',
+            'shaba' => 'Bank Shaba Number',
+            'card_number' => 'Bank Card Number',
+            'username' => 'Username',
+            'headline' => 'Title',
+            'bio' => 'Bio',
+            'password' => 'New Password',
+            'mobile' => 'Mobile',
         ];
     }
 }
+

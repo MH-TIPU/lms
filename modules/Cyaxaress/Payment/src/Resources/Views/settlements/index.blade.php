@@ -1,28 +1,28 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('settlements.index') }}" title="تسویه حساب ها">تسویه حساب ها</a></li>
+    <li><a href="{{ route('settlements.index') }}" title="Settlements">Settlements</a></li>
 @endsection
 @section('content')
     <div class="main-content">
         <div class="tab__box">
             <div class="tab__items">
-                <a class="tab__item is-active" href="?"> همه تسویه ها</a>
-                <a class="tab__item " href="?status={{ \Cyaxaress\Payment\Models\Settlement::STATUS_SETTLED }}">تسویه های واریز شده</a>
-                <a class="tab__item " href="{{ route("settlements.create") }}">درخواست تسویه جدید</a>
+                <a class="tab__item is-active" href="?"> All Settlements</a>
+                <a class="tab__item " href="?status={{ \Cyaxaress\Payment\Models\Settlement::STATUS_SETTLED }}">Settled Settlements</a>
+                <a class="tab__item " href="{{ route("settlements.create") }}">Request New Settlement</a>
             </div>
         </div>
         <div class="bg-white padding-20">
             <div class="t-header-search">
                 <form action="" onclick="event.preventDefault();">
                     <div class="t-header-searchbox font-size-13">
-                        <input type="text" class="text search-input__box font-size-13" placeholder="جستجوی در تسویه حساب ها">
+                        <input type="text" class="text search-input__box font-size-13" placeholder="Search in Settlements">
                         <div class="t-header-search-content ">
-                            <input type="text" class="text" placeholder="شماره کارت">
-                            <input type="text" class="text" placeholder="شماره">
-                            <input type="text" class="text" placeholder="تاریخ">
-                            <input type="text" class="text" placeholder="ایمیل">
-                            <input type="text" class="text margin-bottom-20" placeholder="نام و نام خانوادگی">
-                            <btutton class="btn btn-webamooz_net">جستجو</btutton>
+                            <input type="text" class="text" placeholder="Card Number">
+                            <input type="text" class="text" placeholder="Number">
+                            <input type="text" class="text" placeholder="Date">
+                            <input type="text" class="text" placeholder="Email">
+                            <input type="text" class="text margin-bottom-20" placeholder="Full Name">
+                            <button class="btn btn-webamooz_net">Search</button>
                         </div>
                     </div>
                 </form>
@@ -33,17 +33,17 @@
             <table class="table">
                 <thead role="rowgroup">
                 <tr role="row" class="title-row">
-                    <th>شناسه تسویه</th>
-                    <th>کاربر</th>
-                    <th>مبدا</th>
-                    <th>مقصد</th>
-                    <th> شماره کارت مقصد</th>
-                    <th>تاریخ درخواست واریز</th>
-                    <th>تاریخ واریز شده</th>
-                    <th>مبلغ (تومان )</th>
-                    <th>وضعیت</th>
+                    <th>Settlement ID</th>
+                    <th>User</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Destination Card Number</th>
+                    <th>Request Date</th>
+                    <th>Settled Date</th>
+                    <th>Amount (Toman)</th>
+                    <th>Status</th>
                     @can(\Cyaxaress\RolePermissions\Models\Permission::PERMISSION_MANAGE_SETTLEMENTS)
-                    <th>عملیات</th>
+                    <th>Actions</th>
                     @endcan
                 </tr>
                 </thead>
@@ -62,7 +62,7 @@
 
                         @can(\Cyaxaress\RolePermissions\Models\Permission::PERMISSION_MANAGE_SETTLEMENTS)
                         <td>
-                        <a href="{{ route("settlements.edit", $settlement->id) }}" class="item-edit " title="ویرایش"></a>
+                        <a href="{{ route("settlements.edit", $settlement->id) }}" class="item-edit " title="Edit"></a>
                         </td>
                         @endcan
                 </tr>

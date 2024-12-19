@@ -1,33 +1,33 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('users.index') }}" title="کاربران">کاربران</a></li>
+    <li><a href="{{ route('users.index') }}" title="Users">Users</a></li>
 @endsection
 @section('content')
     <div class="row no-gutters  ">
         <div class="col-12 border-radius-3 bg-white margin-bottom-10">
-            <p class="box__title">اطلاعات کامل حساب کاربری <strong>{{ $user->name }}</strong></p>
+            <p class="box__title">Complete Account Information for <strong>{{ $user->name }}</strong></p>
             <div class="w-100 padding-20 border-radius-3 bg-white margin-left-10 margin-bottom-10">
                 <ul>
-                    <li>ایمیل: <strong><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></strong></li>
-                    <li>نام کاربری: <strong>{{ $user->username }}</strong></li>
-                    <li>موبایل: <strong>{{ $user->mobile }}</strong></li>
-                    <li>عنوان: <strong>{{ $user->headline }}</strong></li>
-                    <li>بیو: <strong>{{ $user->bio }}</strong></li>
-                    <li>موجودی حساب: <strong>{{ $user->balance }}</strong></li>
-                    <li>تاریخ تایید ایمیل: <strong>{{ $user->email_verified_at ? \Morilog\Jalali\Jalalian::fromCarbon($user->email_verified_at) : "تایید نشده" }}</strong></li>
+                    <li>Email: <strong><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></strong></li>
+                    <li>Username: <strong>{{ $user->username }}</strong></li>
+                    <li>Mobile: <strong>{{ $user->mobile }}</strong></li>
+                    <li>Headline: <strong>{{ $user->headline }}</strong></li>
+                    <li>Bio: <strong>{{ $user->bio }}</strong></li>
+                    <li>Account Balance: <strong>{{ $user->balance }}</strong></li>
+                    <li>Email Verification Date: <strong>{{ $user->email_verified_at ? \Morilog\Jalali\Jalalian::fromCarbon($user->email_verified_at) : "Not Verified" }}</strong></li>
                 </ul>
             </div>
         </div>
         <div class="col-6 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p class="box__title">دوره های خریداری شده</p>
+            <p class="box__title">Purchased Courses</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>دوره</th>
-                        <th>مبلغ پرداخت شده</th>
-                        <th>تاریخ</th>
+                        <th>ID</th>
+                        <th>Course</th>
+                        <th>Paid Amount</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,15 +44,15 @@
             </div>
         </div>
         <div class="col-6 border-radius-3 bg-white margin-bottom-10">
-            <p class="box__title">دوره های درحال تدریس</p>
+            <p class="box__title">Courses Being Taught</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>عنوان دوره</th>
-                        <th>وضعیت</th>
-                        <th>تاریخ</th>
+                        <th>ID</th>
+                        <th>Course Title</th>
+                        <th>Status</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,16 +71,16 @@
 
 
         <div class="col-6 border-radius-3 bg-white margin-left-10 margin-bottom-10">
-            <p class="box__title">پرداخت ها</p>
+            <p class="box__title">Payments</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>محصول</th>
-                        <th>مبلغ پرداخت</th>
-                        <th>وضعیت</th>
-                        <th>تاریخ</th>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Payment Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -99,15 +99,15 @@
         </div>
 
         <div class="col-6 border-radius-3 bg-white margin-bottom-10">
-            <p class="box__title">درخواست های تسویه</p>
+            <p class="box__title">Settlement Requests</p>
             <div class="table__box">
                 <table class="table">
                     <thead role="rowgroup">
                     <tr role="row" class="title-row">
-                        <th>شناسه</th>
-                        <th>مبلغ پرداخت</th>
-                        <th>وضعیت</th>
-                        <th>تاریخ</th>
+                        <th>ID</th>
+                        <th>Payment Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>

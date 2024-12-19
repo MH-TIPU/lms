@@ -11,7 +11,7 @@ class Category extends Model
 
     public function getParentAttribute()
     {
-        return (is_null($this->parent_id)) ? 'ندارند' : $this->parentCategory->title;
+        return (is_null($this->parent_id)) ? 'None' : $this->parentCategory->title;
     }
 
     public function parentCategory()

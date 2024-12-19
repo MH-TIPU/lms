@@ -45,15 +45,15 @@ class CommentRejectedNotification extends Notification
         if (! empty($notifiable->telegram)) {
             return TelegramMessage::create()
                 ->to($notifiable->telegram)
-                ->content('دیدگاه شما رد شد.')
-                ->button('مشاهده دوره', $this->comment->commentable->path());
+                ->content('Your comment was rejected.')
+                ->button('View Course', $this->comment->commentable->path());
         }
     }
 
     public function toArray($notifiable)
     {
         return [
-            'message' => 'دیدگاه شما رد شد.',
+            'message' => 'Your comment was rejected.',
             'url' => $this->comment->commentable->path(),
         ];
     }

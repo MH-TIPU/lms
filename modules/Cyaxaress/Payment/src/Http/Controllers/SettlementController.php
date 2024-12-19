@@ -27,7 +27,7 @@ class SettlementController extends Controller
     {
         $this->authorize('store', Settlement::class);
         if ($repo->getLatestPendingSettlement(auth()->id())) {
-            newFeedback('ناموفق', 'شما یک درخواست تسویه در حال انتظار دارید و نمیتوانید درخواست جدیدی فعلا ثبت بکنید.', 'error');
+            newFeedback('Unsuccessful', 'You have a pending settlement request and cannot submit a new one at this time.', 'error');
 
             return redirect()->route('settlements.index');
         }
@@ -39,7 +39,7 @@ class SettlementController extends Controller
     {
         $this->authorize('store', Settlement::class);
         if ($repo->getLatestPendingSettlement(auth()->id())) {
-            newFeedback('ناموفق', 'شما یک درخواست تسویه در حال انتظار دارید و نمیتوانید درخواست جدیدی فعلا ثبت بکنید.', 'error');
+            newFeedback('Unsuccessful', 'You have a pending settlement request and cannot submit a new one at this time.', 'error');
 
             return redirect()->route('settlements.index');
         }
@@ -54,7 +54,7 @@ class SettlementController extends Controller
         $settlement = $repo->getLatestSettlement($requestedSettlement->user_id);
         $this->authorize('manage', Settlement::class);
         if ($settlement->id != $settlementId) {
-            newFeedback('ناموفق', 'این درخواست تسویه قابل ویرایش نیست و بایگانی شده است. فقط آخرین درخواست تسویه ی هر کاربر قابل ویرایش است.', 'error');
+            newFeedback('Unsuccessful', 'This settlement request cannot be edited and has been archived. Only the latest settlement request of each user can be edited.', 'error');
 
             return redirect()->route('settlements.index');
         }
@@ -68,7 +68,7 @@ class SettlementController extends Controller
         $settlement = $repo->getLatestSettlement($requestedSettlement->user_id);
         $this->authorize('manage', Settlement::class);
         if ($settlement->id != $settlementId) {
-            newFeedback('ناموفق', 'این درخواست تسویه قابل ویرایش نیست و بایگانی شده است. فقط آخرین درخواست تسویه ی هر کاربر قابل ویرایش است.', 'error');
+            newFeedback('Unsuccessful', 'This settlement request cannot be edited and has been archived. Only the latest settlement request of each user can be edited.', 'error');
 
             return redirect()->route('settlements.index');
         }
@@ -77,3 +77,4 @@ class SettlementController extends Controller
         return redirect(route('settlements.index'));
     }
 }
+

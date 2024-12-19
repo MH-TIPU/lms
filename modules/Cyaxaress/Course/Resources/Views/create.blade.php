@@ -1,26 +1,25 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('courses.index') }}" title="دوره ها">دوره ها</a></li>
-    <li><a href="#" title="ایجاد دوره">ایجاد دوره</a></li>
+    <li><a href="{{ route('courses.index') }}" title="Courses">Courses</a></li>
+    <li><a href="#" title="Create Course">Create Course</a></li>
 @endsection
 @section('content')
-    <div class="row no-gutters  ">
+    <div class="row no-gutters">
         <div class="col-12 bg-white">
-            <p class="box__title">ایجاد دوره</p>
+            <p class="box__title">Create Course</p>
             <form action="{{ route('courses.store') }}" class="padding-30" method="post" enctype="multipart/form-data">
                 @csrf
-                <x-input name="title" placeholder="عنوان دوره" type="text" required/>
-                <x-input type="text" name="slug" placeholder="نام انگلیسی دوره" class="text-left" required />
-
+                <x-input name="title" placeholder="Course Title" type="text" required/>
+                <x-input type="text" name="slug" placeholder="Course Slug" class="text-left" required />
 
                 <div class="d-flex multi-text">
-                    <x-input type="text" class="text-left mlg-15" name="priority" placeholder="ردیف دوره" />
-                    <x-input type="text" placeholder="مبلغ دوره" name="price" class="text-left" required />
-                    <x-input type="number" placeholder="درصد مدرس" name="percent" class="text-left" required />
+                    <x-input type="text" class="text-left mlg-15" name="priority" placeholder="Course Priority" />
+                    <x-input type="text" placeholder="Course Price" name="price" class="text-left" required />
+                    <x-input type="number" placeholder="Teacher Percentage" name="percent" class="text-left" required />
                 </div>
                 @if(hasPermissionTo(Cyaxaress\RolePermissions\Models\Permission::PERMISSION_MANAGE_COURSES))
                 <x-select name="teacher_id" required>
-                    <option value="">انتخاب مدرس دوره</option>
+                    <option value="">Select Course Teacher</option>
                     @foreach($teachers as $teacher)
                     <option value="{{ $teacher->id }}" @if($teacher->id == old('teacher_id')) selected @endif>{{ $teacher->name }}</option>
                     @endforeach
@@ -30,7 +29,7 @@
                 <x-tag-select name="tags"/>
 
                 <x-select name="type" required>
-                    <option value="">نوع دوره</option>
+                    <option value="">Course Type</option>
                     @foreach(\Cyaxaress\Course\Models\Course::$types as $type)
                         <option value="{{ $type }}"
                                 @if($type == old('type')) selected @endif
@@ -39,7 +38,7 @@
                 </x-select>
 
                 <x-select name="status" required>
-                    <option value="">وضعیت دوره</option>
+                    <option value="">Course Status</option>
                     @foreach(\Cyaxaress\Course\Models\Course::$statuses as $status)
                         <option value="{{ $status }}"
                                 @if($status == old('status')) selected @endif
@@ -48,18 +47,18 @@
                 </x-select>
 
                 <x-select name="category_id" required>
-                    <option value="">دسته بندی</option>
-                    @foreach($categories  as $category)
+                    <option value="">Category</option>
+                    @foreach($categories as $category)
                         <option value="{{ $category->id }}"
                                 @if($category->id == old('category_id')) selected @endif
                         >{{ $category->title }}</option>
                     @endforeach
                 </x-select>
 
-                <x-file placeholder="آپلود بنر دوره" name="image" required />
-                <x-text-area placeholder="توضیحات دوره" name="body" />
+                <x-file placeholder="Upload Course Banner" name="image" required />
+                <x-text-area placeholder="Course Description" name="body" />
                 <br>
-                <button class="btn btn-webamooz_net">ایجاد دوره</button>
+                <button class="btn btn-webamooz_net">Create Course</button>
             </form>
         </div>
     </div>

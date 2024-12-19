@@ -1,7 +1,7 @@
 <div class="box-filter">
     <div class="b-head">
-        <h2>جدید ترین دوره ها</h2>
-        <a href="all-courses.html">مشاهده همه</a>
+        <h2>Latest Courses</h2>
+        <a href="all-courses.html">View All</a>
     </div>
     <div class="posts">
         @foreach($latestCourses as $courseItem)

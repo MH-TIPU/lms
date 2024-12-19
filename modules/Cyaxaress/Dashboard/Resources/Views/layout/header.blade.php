@@ -4,7 +4,7 @@
         <a class="header__logo" href="/"></a>
     </div>
     <div class="header__left d-flex flex-end item-center margin-top-2">
-        <span class="account-balance font-size-12">موجودی : {{ number_format(auth()->user()->balance) }} تومان</span>
+        <span class="account-balance font-size-12">Balance: {{ number_format(auth()->user()->balance) }} Toman</span>
         <div class="notification margin-15">
             <a class="notification__icon {{ count($notifications) ? "text-error" : "" }}"></a>
             <div class="dropdown__notification">
@@ -19,9 +19,9 @@
                                 </li>
                             @endforeach
                         </ul>
-                        <a href="{{ route("notifications.markAllAsRead") }}" class="btn btn-webamooz_net font-size-11 " style="color: white !important;">علامت زدن همه به عنوان خوانده شده</a>
+                        <a href="{{ route("notifications.markAllAsRead") }}" class="btn btn-webamooz_net font-size-11 " style="color: white !important;">Mark all as read</a>
                     @else
-                        <span class="font-size-13">موردی برای نمایش وجود ندارد</span>
+                        <span class="font-size-13">No items to display</span>
                     @endif
                 </div>
             </div>
@@ -29,7 +29,7 @@
         <form action="{{ route('logout') }}" method="post" id="logout">
             @csrf
             <a href="" onclick="event.preventDefault(); document.getElementById('logout').submit()" class="logout"
-               title="خروج"></a>
+               title="Logout"></a>
         </form>
     </div>
 </div>

@@ -6,16 +6,15 @@
             <img src="/img/Hemn_ORG.png" alt="">
         </a>
         <div class="card-header">
-            <p class="activation-code-title">کد فرستاده شده به ایمیل  <span>Mohammadniko3@gmail.com</span> را وارد کنید</p>
+            <p class="activation-code-title">Enter the code sent to the email <span>Mohammadniko3@gmail.com</span></p>
         </div>
         <div class="form-content form-content1">
-            <input class="activation-code-input" placeholder="فعال سازی">
+            <input class="activation-code-input" placeholder="Activation">
             <br>
-            <button class="btn i-t">تایید</button>
-
+            <button class="btn i-t">Confirm</button>
         </div>
         <div class="form-footer">
-            <a href="login.html">صفحه ثبت نام</a>
+            <a href="login.html">Registration Page</a>
         </div>
     </form>
 @endsection

@@ -1,7 +1,7 @@
 @extends('Dashboard::master')
 @section('breadcrumb')
-    <li><a href="{{ route('tickets.index') }}" title="تیکت ها">تیکت ها</a></li>
-    <li><a href="#" title="نمایش تیکت">نمایش تیکت</a></li>
+    <li><a href="{{ route('tickets.index') }}" title="Tickets">Tickets</a></li>
+    <li><a href="#" title="View Ticket">View Ticket</a></li>
 @endsection
 @section('content')
     <div class="show-comment">
@@ -20,7 +20,7 @@
                     <img src="{{ $reply->user->thumb}}" class="logo-pic">
                </span>
                     <span class="nav-comment-status">
-                    <p class="username">کاربر : {{ $reply->user->name }}</p>
+                    <p class="username">User: {{ $reply->user->name }}</p>
                     <p class="comment-date">{{ $reply->created_at }}</p></span>
                     <div>
 
@@ -30,7 +30,7 @@
                     <pre>{!! $reply->body !!}
                         <div class="border-top margin-top-6">
                             @if($reply->media_id)
-                                <a href="{{ $reply->attachmentLink() }}" class="text-success">دانلود فایل پیوست</a>
+                                <a href="{{ $reply->attachmentLink() }}" class="text-success">Download Attachment</a>
                             @endif
                         </div>
                     </pre>
@@ -40,13 +40,13 @@
         @endforeach
     </div>
     <div class="answer-comment">
-        <p class="p-answer-comment">ارسال پاسخ</p>
+        <p class="p-answer-comment">Submit Reply</p>
         <form action="{{ route("tickets.reply", $ticket->id) }}" method="post" enctype="multipart/form-data"
               class="padding-30">
             @csrf
-            <x-text-area placeholder="متن پاسخ" name="body" class="text" required/>
-            <x-file name="attachment" placeholder="آپلود فایل پیویست"/>
-            <button class="btn btn-webamooz_net">ارسال پاسخ</button>
+            <x-text-area placeholder="Reply Text" name="body" class="text" required/>
+            <x-file name="attachment" placeholder="Upload Attachment"/>
+            <button class="btn btn-webamooz_net">Submit Reply</button>
         </form>
     </div>
 @endsection

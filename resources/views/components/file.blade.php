@@ -6,11 +6,11 @@
     <span class="filesize"></span>
     @if(isset($value))
         <p class="selectedFiles">
-            <p>تصویر فعلی: <strong>{{ $value->filename }}</strong></p>
+            <p>Current image: <strong>{{ $value->filename }}</strong></p>
             <img src="{{ $value->thumb }}" width="150" alt="" class="margin-15 mt-2">
         </p>
     @else
-        <span class="selectedFiles">فایلی انتخاب نشده است</span>
+        <span class="selectedFiles">No file selected</span>
     @endif
     <x-validation-error field="{{ $name }}"/>
 </div>
